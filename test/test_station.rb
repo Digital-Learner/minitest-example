@@ -29,24 +29,27 @@ class TestStation < MiniTest::Unit::TestCase
   end
 
   def test_return_broken_bikes
-    broken_bike = Bike.new
-    broken_bike.break!
-    working_bike = Bike.new
-    @station << broken_bike
-    @station << working_bike
+    create_single_working_and_single_broken_bikes
     assert_equal 1, @station.broken_bikes.length
   end
 
   def test_return_working_bikes
-    broken_bike = Bike.new
-    broken_bike.break!
-    working_bike = Bike.new
-    @station << broken_bike
-    @station << working_bike
+    create_single_working_and_single_broken_bikes
     assert_equal 1, @station.working_bikes.length 
   end
 
   def test_cant_receive_when_over_capacity
     # make sure an returns false when full and doesn't add bike
   end
+
+  private
+
+    def create_single_working_and_single_broken_bikes
+      broken_bike = Bike.new
+      broken_bike.break!
+      working_bike = Bike.new
+      @station << broken_bike
+      @station << working_bike
+    end
+
 end
