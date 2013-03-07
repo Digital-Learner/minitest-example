@@ -14,14 +14,14 @@ class TestVan < MiniTest::Unit::TestCase
   def test_van_receive_bike
     bike = Bike.new
     @van << bike 
-    assert @van.count_bikes == 1
+    assert_equal 1, @van.count_bikes
   end
 
   def test_van_release
     bike = Bike.new
     @van << bike
-    assert @van.count_bikes == 1
+    assert_equal 1, @van.count_bikes
     @van.release_bike
-    assert @van.count_bikes == 0
+    assert_equal 0, @van.count_bikes
   end
 end
