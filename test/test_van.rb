@@ -24,16 +24,4 @@ class TestVan < MiniTest::Unit::TestCase
     @van.release_bike
     assert @van.count_bikes == 0
   end
-
-
-  private
-
-    def create_single_working_and_single_broken_bikes
-      broken_bike = Bike.new
-      broken_bike.break!
-      working_bike = Bike.new
-      @van << broken_bike
-      @van << working_bike
-    end
-
 end
