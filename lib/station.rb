@@ -4,12 +4,12 @@ class Station
     @bikes = []
   end
 
-  def <<(bike)
+  def <<(bike) # receive_bike
     @bikes << bike
   end
 
   def count_bikes
-    @bikes.count 
+    @bikes.count
   end
 
   def release_bike

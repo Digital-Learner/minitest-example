@@ -11,21 +11,21 @@ class TestStation < MiniTest::Unit::TestCase
   end
 
   def test_if_station_is_created_with_empty_bikes_array
-    assert @station.count_bikes == 0 
+    assert @station.count_bikes == 0
   end
 
   def test_station_can_receive_bikes
     bike = Bike.new
     @station << bike 
-    assert @station.count_bikes == 1 
+    assert @station.count_bikes == 1
   end
 
   def test_station_can_release_bikes
     bike = Bike.new
     @station << bike
-    assert @station.count_bikes == 1 
+    assert @station.count_bikes == 1
     @station.release_bike
-    assert @station.count_bikes == 0 
+    assert @station.count_bikes == 0
   end
 
   def test_return_broken_bikes
@@ -35,11 +35,7 @@ class TestStation < MiniTest::Unit::TestCase
 
   def test_return_working_bikes
     create_single_working_and_single_broken_bikes
-    assert_equal 1, @station.working_bikes.length 
-  end
-
-  def test_cant_receive_when_over_capacity
-    # make sure an returns false when full and doesn't add bike
+    assert_equal 1, @station.working_bikes.length
   end
 
   private
@@ -51,5 +47,4 @@ class TestStation < MiniTest::Unit::TestCase
       @station << broken_bike
       @station << working_bike
     end
-
 end
