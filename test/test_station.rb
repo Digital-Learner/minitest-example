@@ -19,4 +19,12 @@ class TestStation < MiniTest::Unit::TestCase
     @station << bike 
     assert @station.count_bikes == 1 
   end
+
+  def test_station_can_release_bikes
+    bike = Bike.new
+    @station << bike
+    #@station << bike  - is this overkill?
+    @station.release_bike
+    assert @station.count_bikes == 0 
+  end
 end
