@@ -23,8 +23,30 @@ class TestStation < MiniTest::Unit::TestCase
   def test_station_can_release_bikes
     bike = Bike.new
     @station << bike
-    #@station << bike  - is this overkill?
+    assert @station.count_bikes == 1 
     @station.release_bike
     assert @station.count_bikes == 0 
+  end
+
+  def test_return_broken_bikes
+    broken_bike = Bike.new
+    broken_bike.break!
+    working_bike = Bike.new
+    @station << broken_bike
+    @station << working_bike
+    assert_equal 1, @station.broken_bikes.length
+  end
+
+  def test_return_working_bikes
+    broken_bike = Bike.new
+    broken_bike.break!
+    working_bike = Bike.new
+    @station << broken_bike
+    @station << working_bike
+    assert_equal 1, @station.working_bikes.length 
+  end
+
+  def test_cant_receive_when_over_capacity
+    # make sure an returns false when full and doesn't add bike
   end
 end
