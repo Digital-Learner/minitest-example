@@ -11,21 +11,21 @@ class TestStation < MiniTest::Unit::TestCase
   end
 
   def test_if_station_is_created_with_empty_bikes_array
-    assert_equal 0, @station.count_bikes
+    assert_equal 0, @station.bikes.count
   end
 
   def test_station_can_receive_bikes
     bike = Bike.new
     @station << bike 
-    assert_equal 1, @station.count_bikes
+    assert_equal 1, @station.bikes.count
   end
 
   def test_station_can_release_bikes
     bike = Bike.new
     @station << bike
-    assert_equal 1, @station.count_bikes
+    assert_equal 1, @station.bikes.count
     @station.release_bike
-    assert_equal 0, @station.count_bikes
+    assert_equal 0, @station.bikes.count
   end
 
   def test_count_of_broken_bikes
@@ -35,7 +35,7 @@ class TestStation < MiniTest::Unit::TestCase
 
   def test_count_of_non_broken_bikes
     create_single_working_and_single_broken_bike
-    assert_equal 1, @station.count_bikes - @station.broken_bikes.count
+    assert_equal 1, @station.bikes.count - @station.broken_bikes.count
     # not sure if this is absolute (length) chose to use count as more versatile?
   end
 
