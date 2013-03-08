@@ -13,18 +13,16 @@ class TestPerson < MiniTest::Unit::TestCase
     @person = Person.new
   end
 
-  # def test_take_bike
-  #   bike = Bike.new
-  #   @person.take_bike if not @person.has_bike? 
-  #   assert_equal true, @person.has_bike?
-  # end
+  def test_take_bike
+    station = Station.new
+    @person.take_bike_from(station)# if not @person.has_bike? 
+    assert_equal true, @person.has_bike?
+  end
 
   def test_return_bike
   end
 
   def test_has_bike?
-    bike = Bike.new
     assert_equal false, @person.has_bike?
   end
-
 end

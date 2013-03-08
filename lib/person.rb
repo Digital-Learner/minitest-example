@@ -1,14 +1,15 @@
 class Person
 
   def initialize
-    @has_bike = false
+    @bike = false
   end
 
   def has_bike?
-    @has_bike
-  end
+    @bike != false
+    # !!@bike # This is the ruby magic way of doing @bike != false
+   end
 
-  def take_bike
-
+  def take_bike_from(station)
+    @bike = station.release_bike
   end
 end
