@@ -8,7 +8,7 @@ class Garage
     @bikes << bike
   end
 
-  def release_bike
+  def release_bike(bike)
     @bikes.pop
   end
 

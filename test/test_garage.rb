@@ -22,7 +22,7 @@ class TestGarage < MiniTest::Unit::TestCase
     bike = Bike.new
     @garage << bike
     assert_equal 1, @garage.count_bikes
-    @garage.release_bike
+    @garage.release_bike(bike)
     assert_equal 0, @garage.count_bikes
   end
 end
