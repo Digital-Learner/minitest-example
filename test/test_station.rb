@@ -28,19 +28,20 @@ class TestStation < MiniTest::Unit::TestCase
     assert_equal 0, @station.count_bikes
   end
 
-  def test_return_broken_bikes
-    create_single_working_and_single_broken_bikes
+  def test_count_of_broken_bikes
+    create_single_working_and_single_broken_bike
     assert_equal 1, @station.broken_bikes.length
   end
 
-  def test_return_working_bikes
-    create_single_working_and_single_broken_bikes
-    assert_equal 1, @station.working_bikes.length
+  def test_count_of_non_broken_bikes
+    create_single_working_and_single_broken_bike
+    assert_equal 1, @station.count_bikes - @station.broken_bikes.count
+    # not sure if this is absolute (length) chose to use count as more versatile?
   end
 
   private
 
-    def create_single_working_and_single_broken_bikes
+    def create_single_working_and_single_broken_bike
       broken_bike = Bike.new
       broken_bike.break!
       working_bike = Bike.new

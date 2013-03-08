@@ -19,8 +19,4 @@ class Station
   def broken_bikes 
     @bikes.select { |bike| bike.broken? }
   end
-
-  def working_bikes 
-    @bikes.reject { |bike| bike.broken? }
-  end
 end
