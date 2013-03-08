@@ -12,8 +12,9 @@ class Van
     @bikes.count
   end
 
-  def release_bike
-    @bikes.pop
+  def release_bike(bike)
+    raise "There are no bikes." if @bikes.count <= 0
+    @bikes.delete(bike)
   end
 
 end

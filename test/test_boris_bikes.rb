@@ -5,7 +5,7 @@ require 'turn' # improves the default output
 
 class TestBorisBikes < MiniTest::Unit::TestCase
 
-  def setup   
+  def setup
  
   end
 
