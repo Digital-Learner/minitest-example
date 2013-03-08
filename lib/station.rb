@@ -10,8 +10,9 @@ class Station
     @bikes << bike
   end
 
-  def release_bike
-    @bikes.pop
+  def release_bike(bike)
+    raise "There are no bikes." if @bikes.count <= 0 || @bikes.count - broken_bikes.count <= 0
+    @bikes.delete(bike)
   end
 
   def broken_bikes 

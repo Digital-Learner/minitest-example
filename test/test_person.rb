@@ -15,9 +15,23 @@ class TestPerson < MiniTest::Unit::TestCase
 
   def test_take_bike
     station = Station.new
-    @person.take_bike_from(station)# if not @person.has_bike? 
+    bike = Bike.new
+    station << bike
+    @person.take_bike_from(station, bike)
     assert_equal true, @person.has_bike?
     assert_equal 0, station.bikes.count
+  end
+
+  def test_can_not_take_bike_when_has_bike
+    # station = station_with_a_bike # this is failing is it because we don't have a bike?
+    station = Station.new
+    bike = Bike.new
+    station << bike
+    @person.take_bike_from(station, bike)
+    assert_equal true, @person.has_bike?
+    assert_equal 0, station.bikes.count
+    # @person.take_bike_from(station) 
+    # assert_equal 
   end
 
   def test_return_bike
@@ -30,4 +44,11 @@ class TestPerson < MiniTest::Unit::TestCase
   def test_has_bike?
     assert_equal false, @person.has_bike?
   end
+
+  private
+
+    def station_with_a_bike
+      station = Station.new      
+      station << Bike.new
+    end
 end

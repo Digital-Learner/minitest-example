@@ -9,8 +9,8 @@ class Person
     # !!@bike # This is the ruby magic way of doing @bike != false
    end
 
-  def take_bike_from(station)
-    @bike = station.release_bike
+  def take_bike_from(station, bike)
+    @bike = station.release_bike(bike)
   end
 
   def return_bike_to(station)

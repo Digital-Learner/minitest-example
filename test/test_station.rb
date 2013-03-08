@@ -24,7 +24,7 @@ class TestStation < MiniTest::Unit::TestCase
     bike = Bike.new
     @station << bike
     assert_equal 1, @station.bikes.count
-    @station.release_bike
+    @station.release_bike(bike)
     assert_equal 0, @station.bikes.count
   end
 
@@ -37,6 +37,12 @@ class TestStation < MiniTest::Unit::TestCase
     create_single_working_and_single_broken_bike
     assert_equal 1, @station.bikes.count - @station.broken_bikes.count
     # not sure if this is absolute (length) chose to use count as more versatile?
+  end
+
+  def test_station_cannot_release_nonexistent_bikes
+    assert_raises(RuntimeError) {
+      @station.release_bike(Bike.new)
+    }
   end
 
   private
