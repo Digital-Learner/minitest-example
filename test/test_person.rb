@@ -17,9 +17,14 @@ class TestPerson < MiniTest::Unit::TestCase
     station = Station.new
     @person.take_bike_from(station)# if not @person.has_bike? 
     assert_equal true, @person.has_bike?
+    assert_equal 0, station.bikes.count
   end
 
   def test_return_bike
+    station = Station.new
+    @person.return_bike_to(station)
+    assert_equal false, @person.has_bike?
+    assert_equal 1, station.bikes.count
   end
 
   def test_has_bike?
