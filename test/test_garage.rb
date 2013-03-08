@@ -25,4 +25,10 @@ class TestGarage < MiniTest::Unit::TestCase
     @garage.release_bike(bike)
     assert_equal 0, @garage.count_bikes
   end
+
+  def test_garage_cannot_release_nonexistant_bikes
+    assert_raises(RuntimeError) {
+      @garage.release_bike(Bike.new)
+    }
+  end
 end

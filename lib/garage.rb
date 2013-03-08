@@ -9,7 +9,8 @@ class Garage
   end
 
   def release_bike(bike)
-    @bikes.pop
+    raise "There are no bikes." if @bikes.count <= 0
+    @bikes.delete(bike)
   end
 
   def count_bikes
