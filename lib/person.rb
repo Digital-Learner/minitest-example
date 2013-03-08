@@ -10,6 +10,7 @@ class Person
    end
 
   def take_bike_from(station, bike)
+    
     @bike = station.release_bike(bike)
   end
 

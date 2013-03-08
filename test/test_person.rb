@@ -30,8 +30,8 @@ class TestPerson < MiniTest::Unit::TestCase
     @person.take_bike_from(station, bike)
     assert_equal true, @person.has_bike?
     assert_equal 0, station.bikes.count
-    # @person.take_bike_from(station) 
-    # assert_equal 
+    # @person.take_bike_from(station, bike) 
+    # assert_equal false, @person.has_bike?
   end
 
   def test_return_bike
