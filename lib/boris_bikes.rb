@@ -20,6 +20,10 @@ class BorisBikes
     @person.take_bike_from(station, station.bikes.first)
   end
 
+  def person_returns_bike
+    @person.return_bike_to(station) 
+  end
+
 end
 
 

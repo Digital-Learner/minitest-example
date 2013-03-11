@@ -15,14 +15,17 @@ class TestBorisBikes < MiniTest::Unit::TestCase
     @boris_bikes.load_station_with_initial_bikes(10)
   end
 
-  def test_person_take_bikes
+  def test_person_takes_bike
     @boris_bikes.person_takes_bike
     assert_equal 9, @boris_bikes.station.bikes.length
     assert_equal true, @boris_bikes.person.has_bike?
   end
 
-  def test_person_return_bikes
-
+  def test_person_returns_bikes
+    @boris_bikes.person_takes_bike
+    @boris_bikes.person.returns_bike
+    assert_equal 10, @boris_bikes.station.bikes.length
+    assert_equal false, @boris_bikes.person.has_bike?
   end
 
   def test_station_with_bikes_is_created
