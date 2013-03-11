@@ -43,7 +43,7 @@ class TestBorisBikes < MiniTest::Unit::TestCase
   end
 
   def test_people_are_created
-
+    assert @boris_bikes.people
   end
 
   def test_van_is_created
