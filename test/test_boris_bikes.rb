@@ -23,7 +23,7 @@ class TestBorisBikes < MiniTest::Unit::TestCase
 
   def test_person_returns_bikes
     @boris_bikes.person_takes_bike
-    @boris_bikes.person.returns_bike
+    @boris_bikes.person_returns_bike
     assert_equal 10, @boris_bikes.station.bikes.length
     assert_equal false, @boris_bikes.person.has_bike?
   end
@@ -31,6 +31,10 @@ class TestBorisBikes < MiniTest::Unit::TestCase
   def test_station_with_bikes_is_created
     assert @boris_bikes.station
     assert_equal 10, @boris_bikes.station.bikes.count
+  end
+
+  def test_van_moves_bikes_from_station_to_garage_when_there_are_broken_bikes_at_a_station
+
   end
 
   def test_person_is_created
@@ -50,7 +54,7 @@ end
 __END__
 
   def test_van_moves_bikes_from_station_to_garage_when_there_are_broken_bikes_at_a_station
-
+    
   end
 
   def test_van_moves_bikes_from_station_to_garage_when_there_are_fixed_bikes_at_the_garage
