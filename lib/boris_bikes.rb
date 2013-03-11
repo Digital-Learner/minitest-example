@@ -1,9 +1,9 @@
 class BorisBikes
 
-  attr_reader :van, :garage, :people
+  attr_reader :van, :garage, :people, :station
 
   def initialize
-#     @stations = stations_with_bikes
+    @station = Station.new
     @people = Person.new
     @van = Van.new
     @garage = Garage.new

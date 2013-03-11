@@ -15,7 +15,7 @@ class TestBorisBikes < MiniTest::Unit::TestCase
   end
 
   def test_people_take_bikes
-
+    
   end
 
   def test_van_moves_bikes_from_station_to_garage_when_there_are_broken_bikes_at_a_station
@@ -38,8 +38,8 @@ class TestBorisBikes < MiniTest::Unit::TestCase
 
   end
 
-  def test_stations_with_bikes_are_created
-
+  def test_station_with_bikes_are_created
+    assert @boris_bikes.station
   end
 
   def test_people_are_created
