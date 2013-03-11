@@ -45,6 +45,13 @@ class TestStation < MiniTest::Unit::TestCase
     }
   end
 
+  def test_station_cannot_accept_a_bike_it_already_has
+    station = Station.new
+    bike = Bike.new
+    station << bike
+    assert_raises(RuntimeError) { station << bike }
+  end  
+
   private
 
     def create_single_working_and_single_broken_bike
