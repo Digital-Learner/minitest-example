@@ -10,13 +10,11 @@ class Person
    end
 
   def take_bike_from(station, bike)
-    
-    @bike = station.release_bike(bike)
+    @bike = station.release_bike(bike) unless has_bike?
   end
 
   def return_bike_to(station)
     station.bikes << @bike
     @bike = false
   end
-
 end

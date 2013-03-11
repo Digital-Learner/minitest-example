@@ -8,7 +8,6 @@ class Station
 
   def <<(bike) # receive_bike
     @bikes.include?(bike) ? (raise "Bike already there") : @bikes << bike
-
   end
 
   def release_bike(bike)
