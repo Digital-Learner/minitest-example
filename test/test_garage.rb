@@ -1,7 +1,8 @@
-require './lib/station' # the class under test
+require './lib/location'
+require './lib/station' 
 require './lib/bike'
 require './lib/van'
-require './lib/garage'
+require './lib/garage' # the class under test
 require 'minitest/autorun' # the minitest itself
 require 'ansi' # makes it colored
 require 'turn' # improves the default output
@@ -12,10 +13,8 @@ class TestGarage < MiniTest::Unit::TestCase
     @garage = Garage.new
   end
 
-  def test_take_bike
-    bike = Bike.new
-    @garage << bike
-    assert_equal 1, @garage.count_bikes
+  def test_inherits_from_location
+    assert_instance_of Location.class, Garage.superclass
   end
 
   def test_release_bike

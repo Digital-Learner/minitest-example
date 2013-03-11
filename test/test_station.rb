@@ -1,3 +1,4 @@
+require './lib/location'
 require './lib/station' # the class under test
 require './lib/bike'
 require 'minitest/autorun' # the minitest itself
@@ -12,12 +13,6 @@ class TestStation < MiniTest::Unit::TestCase
 
   def test_if_station_is_created_with_empty_bikes_array
     assert_equal 0, @station.bikes.count
-  end
-
-  def test_station_can_receive_bikes
-    bike = Bike.new
-    @station << bike 
-    assert_equal 1, @station.bikes.count
   end
 
   def test_station_can_release_bikes

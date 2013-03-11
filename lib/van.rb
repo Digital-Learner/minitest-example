@@ -1,12 +1,4 @@
-class Van
-
-  def initialize
-    @bikes = []
-  end
-
-  def <<(bike) # receive_bike
-    @bikes << bike
-  end
+class Van < Location
 
   def count_bikes
     @bikes.count

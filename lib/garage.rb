@@ -1,12 +1,4 @@
-class Garage
-
-  def initialize
-    @bikes = []
-  end
-
-  def <<(bike)
-    @bikes << bike
-  end
+class Garage < Location
 
   def release_bike(bike)
     raise "There are no bikes." if @bikes.count <= 0
