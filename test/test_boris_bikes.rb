@@ -1,3 +1,8 @@
+require './lib/station'
+require './lib/bike'
+require './lib/van'
+require './lib/garage'
+require './lib/person'
 require './lib/boris_bikes' # the class under test
 require 'minitest/autorun' # the minitest itself
 require 'ansi' # makes it colored
@@ -6,7 +11,7 @@ require 'turn' # improves the default output
 class TestBorisBikes < MiniTest::Unit::TestCase
 
   def setup
- 
+    @boris_bikes = BorisBikes.new
   end
 
   def test_people_take_bikes
@@ -42,11 +47,11 @@ class TestBorisBikes < MiniTest::Unit::TestCase
   end
 
   def test_van_is_created
-    
+    assert @boris_bikes.van 
   end
 
   def test_garage_is_created
-    
+    assert @boris_bikes.garage
   end
 
 end
